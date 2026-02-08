@@ -9,4 +9,5 @@ public final class ApiPaths {
     public static final String PROFESSORS = API_BASE_V1 + "/professors";
     public static final String COURSES = API_BASE_V1 + "/courses";
     public static final String COURSE_OFFERING = API_BASE_V1 + "/courseofferig";
+    public static final String ENROLLMENTS = API_BASE_V1 + "/enrollments";
 }
