@@ -1,6 +1,7 @@
 package com.example.university.controller;
 
-import com.example.university.dto.StudentDto;
+import com.example.university.dto.StudentRequestDto;
+import com.example.university.dto.StudentResponseDto;
 import com.example.university.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -19,18 +20,18 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<StudentDto> create(@Valid @RequestBody StudentDto studentDto) {
-        return new ResponseEntity<>(studentService.create(studentDto), HttpStatus.CREATED);
+    public ResponseEntity<StudentResponseDto> create(@Valid @RequestBody StudentRequestDto studentRequestDto) {
+        return new ResponseEntity<>(studentService.create(studentRequestDto), HttpStatus.CREATED);
     }
 
 
     @GetMapping("getByNationalCode/{nationalCode}")
-    public ResponseEntity<StudentDto> getByNationalCode(@PathVariable String nationalCode) {
+    public ResponseEntity<StudentResponseDto> getByNationalCode(@PathVariable String nationalCode) {
         return new ResponseEntity<>(studentService.getByNationalCode(nationalCode), HttpStatus.OK);
     }
 
     @GetMapping("getByStudentNumber/{studentNumber}")
-    public ResponseEntity<StudentDto> getByStudentNumber(@PathVariable String studentNumber) {
+    public ResponseEntity<StudentResponseDto> getByStudentNumber(@PathVariable String studentNumber) {
         return new ResponseEntity<>(studentService.getByStudentNumber(studentNumber), HttpStatus.OK);
     }
 }

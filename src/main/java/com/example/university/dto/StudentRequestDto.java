@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public record StudentDto(
+public record StudentRequestDto(
 
         @NotBlank
         @Size(min = 2, max = 100, message = "{student.dto.firstname.length}")
