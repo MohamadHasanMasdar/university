@@ -6,7 +6,9 @@ public enum BusinessExceptionsEnum {
     STUDENT_DUPLICATED_BY_STUDENT_NUMBER("student with this student number registered before"),
     STUDENT_NOT_FOUND("student not found"),
     PROFESSOR_DUPLICATED_BY_NATIONAL_CODE("professor with this national code registered before"),
-    PROFESSOR_NOT_FOUND("professor not found");
+    PROFESSOR_NOT_FOUND("professor not found"),
+    COURSE_DUPLICATED_BY_CODE("course with this code registered before"),
+    COURSE_NOT_FOUND("course not found");
 
     private final String message;
 
