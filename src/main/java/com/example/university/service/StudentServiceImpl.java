@@ -9,6 +9,9 @@ import com.example.university.mapper.StudentMapper;
 import com.example.university.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class StudentServiceImpl implements StudentService {
 
@@ -58,5 +61,13 @@ public class StudentServiceImpl implements StudentService {
             throw new BusinessException(BusinessExceptionsEnum.STUDENT_NOT_FOUND.getMessage());
 
         return studentMapper.toResponseDto(student);
+    }
+
+    @Override
+    public List<StudentResponseDto> getAll() {
+        return studentRepository.findAll()
+                .stream()
+                .map(studentMapper::toResponseDto)
+                .toList();
     }
 }

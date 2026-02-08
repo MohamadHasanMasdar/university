@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(ApiPaths.STUDENTS)
 public class StudentController {
@@ -33,5 +35,10 @@ public class StudentController {
     @GetMapping("getByStudentNumber/{studentNumber}")
     public ResponseEntity<StudentResponseDto> getByStudentNumber(@PathVariable String studentNumber) {
         return new ResponseEntity<>(studentService.getByStudentNumber(studentNumber), HttpStatus.OK);
+    }
+
+    @GetMapping("getAll")
+    public ResponseEntity<List<StudentResponseDto>> getAll() {
+        return new ResponseEntity<>(studentService.getAll(), HttpStatus.OK);
     }
 }

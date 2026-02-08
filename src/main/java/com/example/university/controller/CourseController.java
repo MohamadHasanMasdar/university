@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(ApiPaths.COURSES)
 public class CourseController {
@@ -26,6 +28,11 @@ public class CourseController {
 
     @GetMapping("getByCode/{code}")
     public ResponseEntity<CourseResponseDto> getByCode(@PathVariable String code) {
-        return new ResponseEntity<>(courseService.getByCode(code), HttpStatus.CREATED);
+        return new ResponseEntity<>(courseService.getByCode(code), HttpStatus.OK);
+    }
+
+    @GetMapping("getAll")
+    public ResponseEntity<List<CourseResponseDto>> getAll() {
+        return new ResponseEntity<>(courseService.getAll(), HttpStatus.OK);
     }
 }

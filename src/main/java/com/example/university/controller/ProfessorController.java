@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(ApiPaths.PROFESSORS)
 public class ProfessorController {
@@ -25,6 +27,11 @@ public class ProfessorController {
 
     @GetMapping("getByNationalCode/{nationalCode}")
     public ResponseEntity<ProfessorResponseDto> getByNationalCode(@PathVariable String nationalCode) {
-        return new ResponseEntity<>(professorService.getByNationalCode(nationalCode), HttpStatus.CREATED);
+        return new ResponseEntity<>(professorService.getByNationalCode(nationalCode), HttpStatus.OK);
+    }
+
+    @GetMapping("getAll")
+    public ResponseEntity<List<ProfessorResponseDto>> getAll() {
+        return new ResponseEntity<>(professorService.getAll(), HttpStatus.OK);
     }
 }

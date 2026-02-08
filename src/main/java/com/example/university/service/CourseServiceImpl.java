@@ -9,6 +9,9 @@ import com.example.university.mapper.CourseMapper;
 import com.example.university.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CourseServiceImpl implements CourseService {
 
@@ -45,5 +48,13 @@ public class CourseServiceImpl implements CourseService {
             throw new BusinessException(BusinessExceptionsEnum.COURSE_NOT_FOUND.getMessage());
 
         return courseMapper.toResponseDto(course);
+    }
+
+    @Override
+    public List<CourseResponseDto> getAll() {
+        return courseRepository.findAll()
+                .stream()
+                .map(courseMapper::toResponseDto)
+                .toList();
     }
 }
