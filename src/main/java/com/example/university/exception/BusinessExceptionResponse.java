@@ -1,6 +1,8 @@
 package com.example.university.exception;
 
-public record BusinessExceptionResponse(
-        String message
-) {
+public class BusinessExceptionResponse extends ExceptionResponse  {
+
+    public BusinessExceptionResponse(String message) {
+        super(message);
+    }
 }
