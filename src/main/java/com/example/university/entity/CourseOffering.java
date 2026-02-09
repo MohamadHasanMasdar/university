@@ -38,7 +38,8 @@ public class CourseOffering {
 
     @NotBlank
     @Column(nullable = false)
-    String semester;
+    private String semester;
+
 
     protected CourseOffering() {
 

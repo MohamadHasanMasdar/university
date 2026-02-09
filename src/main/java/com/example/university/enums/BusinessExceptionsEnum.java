@@ -11,7 +11,8 @@ public enum BusinessExceptionsEnum {
     COURSE_NOT_FOUND("course not found"),
     COURSE_OFFERING_NOT_FOUND("course offering not found"),
     COURSE_OFFERING_DUPLICATED_BY_COURSE_AND_PROFESSOR_AND_SEMESTER("in this semester, course offering with this course and professor registered before"),
-    ENROLLMENT_DUPLICATED_BY_STUDENT_AND_COURSE_OFFERING("enrollment with this student and course offer registered before");
+    ENROLLMENT_DUPLICATED_BY_STUDENT_AND_COURSE_OFFERING("enrollment with this student and course offer registered before"),
+    COURSE_OFFERING_CAPACITY_IS_FULL("capacity of this course offering is full");
 
 
     private final String message;

@@ -48,6 +48,9 @@ public class EnrollmentServiceImpl implements EnrollmentService {
         if (enrollmentRepository.existsByStudentIdAndCourseOfferingId(enrollmentRequestDto.studentId(), enrollmentRequestDto.courseOfferingId()))
             throw new BusinessException(BusinessExceptionsEnum.ENROLLMENT_DUPLICATED_BY_STUDENT_AND_COURSE_OFFERING.getMessage());
 
+        int remainCourseOfferingCapacity = enrollmentRepository.countAllByCourseOfferingId(courseOffering.get().getId());
+        if (remainCourseOfferingCapacity >= courseOffering.get().getCapacity())
+            throw new BusinessException(BusinessExceptionsEnum.COURSE_OFFERING_CAPACITY_IS_FULL.getMessage());
 
         Enrollment enrollment = new Enrollment(
                 student.get(),
